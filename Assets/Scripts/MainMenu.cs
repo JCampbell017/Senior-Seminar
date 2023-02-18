@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame() 
     {
-    	SceneManager.LoadScene("Demo1Scene");
+    	SceneManager.LoadScene("Game");
     }
     
     public void GoToSettingsMenu()
