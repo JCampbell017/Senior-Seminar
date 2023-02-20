@@ -17,10 +17,11 @@ public class PlayerController : MonoBehaviour
     private float xMin, xMax, yMin, yMax;
 
     public bool isTouchingTree = false;
+    public GameObject tree;
     // public bool choppingTree = false;
     // private float timeToChop = 0.25f;
     // private float timer = 0f;
-
+    public ButtonController btn;
 
     void Start(){
         animator = GetComponent<Animator>();
@@ -49,11 +50,12 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if(collision.gameObject.tag == "Tree"){
            Debug.Log("Touching tree");
-           
-            ButtonController btn = Camera.main.GetComponent<ButtonController>();
+           tree = collision.gameObject;
+            
             btn.tree = collision.gameObject;
             btn.button.SetActive(true);
             CheckCollidingSide(btn.tree);
+      
         }
     }
 
@@ -76,5 +78,7 @@ public class PlayerController : MonoBehaviour
             btn.button.SetActive(false);
         }
     }
+
+    
 
 }
