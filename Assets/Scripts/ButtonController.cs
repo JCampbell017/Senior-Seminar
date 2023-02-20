@@ -8,6 +8,11 @@ public class ButtonController : MonoBehaviour
     public GameObject tree;
     public GameObject player;
     Animator animator;
+
+    private float timer = 0.0f;
+    private float chopTime = 3.0f;
+
+    public bool isChopping = false;
    
 
     void Start()
@@ -19,26 +24,38 @@ public class ButtonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(tree != null){
+        if(tree != null && !isChopping){
             Vector3 treePosition = Camera.main.WorldToScreenPoint(tree.transform.position);
-            button.transform.position = treePosition + new Vector3(0, 2.0f, 0);
+            button.transform.position = treePosition + new Vector3(0, 4.0f, 0);
+        }
+
+        
+        if(isChopping){
+            
+            PlayerController plControl = player.GetComponent<PlayerController>();
+            timer += Time.deltaTime;
+            if(timer > chopTime){
+                timer = 0;
+                isChopping = false;
+                animator.SetBool("chopTree", false);
+                // Need to destroy tree somehow
+               Destroy(tree);
+            }else{
+                if(plControl.sideCollision == "left"){
+                    animator.SetBool("IsLeft", true);
+                }else{
+                    animator.SetBool("IsLeft", false);
+                }
+            }
+        
         }
     }
 
    public void OnClick(){
-        
         Debug.Log("Chopping down tree :)");
         animator.SetBool("chopTree", true);
-        PlayerController plControl = player.GetComponent<PlayerController>();
-        float chopTime = 5.0f;
-        if(plControl.sideCollision == "left"){
-            animator.SetBool("IsLeft", true);
-            // Some condition that will stop animation
-            // animator.SetBool("chopTree", false);
-        }else{
-            animator.SetBool("IsLeft", false);
-            // Some condition that will stop animation
-            // animator.SetBool("chopTree", false);
-        }
+        isChopping = true;
+        button.transform.position = new Vector3(500000,0,-500000);
     }
+
 }
