@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public ButtonController btn;
     //Search
     public GameObject building;
+    public SearchPlace searchbtn;
+    public bool isSearching = false;
     void Start(){
         animator = GetComponent<Animator>();
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -40,6 +42,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", rbPlayer.velocity.y);
         animator.SetFloat("Magnitude", rbPlayer.velocity.magnitude);
         this.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),Mathf.Clamp(transform.position.y, yMin, yMax), this.transform.position.z);
+        
+        if(isSearching){
+            searchbtn.button.SetActive(true);
+        }
 
     }
     // Performed when player collides with an object
@@ -56,6 +62,7 @@ public class PlayerController : MonoBehaviour
         }else if(collision.gameObject.tag == "Neighbor"){
             //Search
             building = collision.gameObject;
+            searchbtn.button.SetActive(true);
             //Random number of items (food, scrap, rarely water)
             //No more than +10 items in total
         }else if(collision.gameObject.tag == "LakeHouse"){
@@ -65,6 +72,7 @@ public class PlayerController : MonoBehaviour
         }else if(collision.gameObject.tag == "Wind"){
             //Search (water, scrap, rare item)
             building = collision.gameObject;
+            searchbtn.button.SetActive(true);
         }
 
     }
@@ -87,12 +95,6 @@ public class PlayerController : MonoBehaviour
            
             ButtonController btn = Camera.main.GetComponent<ButtonController>();
             btn.button.SetActive(false);
-        }else if(collision.gameObject.tag == "Neighbor"){
-           //Deactivate Search
-        }else if(collision.gameObject.tag == "LakeHouse"){
-            //Deactivate Fish
-        }else if(collision.gameObject.tag == "Wind"){
-            //Deactivate Search
         }
     }
 
