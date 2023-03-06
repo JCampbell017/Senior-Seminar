@@ -31,10 +31,30 @@ public class SearchPlace : MonoBehaviour
                 isSearching = false;
                 timer = 0.0f;
                 player.SetActive(true);
-                
+                player.GetComponent<PlayerController>().isSearching = false;
+                AddResources(player.GetComponent<PlayerController>().collisionTag);
             }
         }
         
+    }
+
+    void AddResources(string building){
+        float food_gain = Random.Range(0, 10);
+        float water_gain = Random.Range(0, 10);
+        float scrap_gain = Random.Range(0, 10);
+        
+        if(building == "Neighbor"){
+            Home.food += food_gain;
+            Home.water += water_gain;
+            Home.scrap += scrap_gain;
+        }else if(building == "Store"){
+            Home.food += food_gain;
+            Home.water += water_gain;
+        }else if(building == "Wind"){
+            Home.water += Random.Range(5, 10);
+        }else if(building == "LakeHouse"){
+            // add fish
+        }
     }
 
     public void OnClick(){
