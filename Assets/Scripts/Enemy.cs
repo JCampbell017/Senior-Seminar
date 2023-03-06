@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private int damage = 5;
     [SerializeField]
-    private float speed = 1.5f;
+    private float speed = 0.75f;
+    [SerializeField]
+    private float range = 0.05f;
 
     [SerializeField]
     private EnemyData data;
@@ -30,7 +32,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LightEnemy();
+        if(player != null)
+            LightEnemy();
     }
 
     private void SetEnemyValues()
@@ -42,11 +45,16 @@ public class Enemy : MonoBehaviour
 
     private void LightEnemy()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if(Vector2.Distance(transform.position, player.transform.position) <= range)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+        //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         //  Vector3 dir = (player.transform.position - rbPlayer.transform.position).normalized;
         //  rbPlayer.MovePosition(rbPlayer.transform.position + dir * speed * Time.fixedDeltaTime);
     }
 
+    //This method will make the enemy inflict damage.
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
