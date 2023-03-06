@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5.0f;
 
     public string sideCollision = "";
+    public string collisionTag = "";
     
     // Bounds of player on map
     public Transform topLeft;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public GameObject building;
     public SearchPlace searchbtn;
     public bool isSearching = false;
+    public Home home;
     void Start(){
         animator = GetComponent<Animator>();
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -51,7 +53,8 @@ public class PlayerController : MonoBehaviour
     // Performed when player collides with an object
     private void OnCollisionEnter2D(Collision2D collision){
         // Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : " + Time.time);
-        if(collision.gameObject.tag == "Tree"){
+        collisionTag = collision.gameObject.tag;
+        if(collisionTag == "Tree"){
            Debug.Log("Touching tree");
            tree = collision.gameObject;
             
@@ -59,20 +62,23 @@ public class PlayerController : MonoBehaviour
             btn.button.SetActive(true);
             CheckCollidingSide(btn.tree);
       
-        }else if(collision.gameObject.tag == "Neighbor"){
+        }else if(collisionTag == "Neighbor"){
             //Search
             building = collision.gameObject;
             searchbtn.button.SetActive(true);
             //Random number of items (food, scrap, rarely water)
             //No more than +10 items in total
-        }else if(collision.gameObject.tag == "LakeHouse"){
+        }else if(collisionTag == "LakeHouse"){
             //Fish (food, water)
             building = collision.gameObject;
             //No more than +3 fish 
-        }else if(collision.gameObject.tag == "Wind"){
+        }else if(collisionTag == "Wind"){
             //Search (water, scrap, rare item)
             building = collision.gameObject;
             searchbtn.button.SetActive(true);
+        }else if(collisionTag =="Home"){
+            building = collision.gameObject;
+            home.button.SetActive(true);
         }
 
     }
@@ -95,6 +101,22 @@ public class PlayerController : MonoBehaviour
            
             ButtonController btn = Camera.main.GetComponent<ButtonController>();
             btn.button.SetActive(false);
+        }else if(collision.gameObject.tag == "Neighbor"){
+            //Search
+            if(!isSearching)
+                searchbtn.button.SetActive(false);
+            //Random number of items (food, scrap, rarely water)
+            //No more than +10 items in total
+        }else if(collision.gameObject.tag == "LakeHouse"){
+            //Fish (food, water)
+            //No more than +3 fish 
+        }else if(collision.gameObject.tag == "Wind"){
+            //Search (water, scrap, rare item)
+            
+            if(!isSearching)
+                searchbtn.button.SetActive(false);
+        }else if(collision.gameObject.tag == "Home"){
+            home.button.SetActive(false);
         }
     }
 
