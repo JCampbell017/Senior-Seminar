@@ -7,6 +7,7 @@ public class ButtonController : MonoBehaviour
     public GameObject button;
     public GameObject tree;
     public GameObject player;
+    public GameObject home; 
     Animator animator;
 
     private float timer = 0.0f;
@@ -40,6 +41,9 @@ public class ButtonController : MonoBehaviour
                 animator.SetBool("chopTree", false);
                 // Need to destroy tree somehow
                Destroy(tree);
+                Home.wood +=3;
+                Debug.Log(Home.wood);
+
             }else{
                 if(plControl.sideCollision == "left"){
                     animator.SetBool("IsLeft", true);
