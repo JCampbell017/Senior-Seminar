@@ -8,6 +8,8 @@ public class SearchPlace : MonoBehaviour
     public GameObject player;
     public GameObject home;
     public GameObject button;
+    public GameObject timerObject;
+    public Animator animTimer;
     Animator animator;
 
     public float timer = 0.0f;
@@ -24,12 +26,24 @@ public class SearchPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(building != null){
+            Vector3 searchTimerPosition = Camera.main.WorldToScreenPoint(player.GetComponent<PlayerController>().building.transform.position);
+            button.transform.position = searchTimerPosition;
+        }
+        
         if(isSearching){
+            button.transform.position = new Vector3(500000,0,-500000);
+            timerObject.SetActive(true);
+            timerObject.transform.position = player.GetComponent<PlayerController>().building.transform.position;
+            animTimer.SetBool("isSearching", true);
             player.SetActive(false);
             timer += Time.deltaTime;
+            
             if(timer > searchTime){
                 isSearching = false;
                 timer = 0.0f;
+                animTimer.SetBool("isSearching", false);
+                timerObject.SetActive(false);
                 player.SetActive(true);
                 player.GetComponent<PlayerController>().isSearching = false;
                 AddResources(player.GetComponent<PlayerController>().collisionTag);
