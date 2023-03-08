@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float speed = 0.75f;
     [SerializeField]
-    private float range = 0.05f;
+    private float range = -1f;
 
     [SerializeField]
     private EnemyData data;
@@ -20,19 +20,28 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rbPlayer;
 
     public Collider2D tmcTrees;
+    private bool isTouchingPlayer = false;
+    private bool isMoving = false;
+
+    Animator animEnemy; 
+
+    float timer = 0.0f;
+    float timeToSpawn = 300.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        // animEnemy = GetComponent<Animator>();
         SetEnemyValues();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player != null)
+        timer += Time.deltaTime;
+        if(player != null && timer > timeToSpawn)
             LightEnemy();
     }
 
@@ -45,13 +54,21 @@ public class Enemy : MonoBehaviour
 
     private void LightEnemy()
     {
-        if(Vector2.Distance(transform.position, player.transform.position) <= range)
+        if(Vector2.Distance(transform.position, player.transform.position) > range)
         {
+            isMoving = true;
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            // animEnemy.SetBool("isMoving", isMoving);
+            if(transform.position.x > player.transform.position.x){
+                GetComponent<SpriteRenderer> ().flipX = true;
+            }else{
+                GetComponent<SpriteRenderer> ().flipX = false;
+            }
+        }else{
+            isMoving = false;
+            // animEnemy.SetBool("isMoving", isMoving);
         }
-        //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        //  Vector3 dir = (player.transform.position - rbPlayer.transform.position).normalized;
-        //  rbPlayer.MovePosition(rbPlayer.transform.position + dir * speed * Time.fixedDeltaTime);
+        
     }
 
     //This method will make the enemy inflict damage.
@@ -66,4 +83,18 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag =="Player"){
+            isTouchingPlayer = true;
+        }else{
+            isTouchingPlayer = false;
+        }
+    }
+
+    // private void OnCollisionExit2D(Collision2D collision){
+    //     if(collision.gameObject.tag =="Player"){
+    //         isTouchingPlayer = false;
+    //     }
+    // }
 }
