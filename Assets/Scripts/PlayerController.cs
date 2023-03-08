@@ -7,11 +7,16 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
+    public PlayerWeapons rweapon;
     public float speed = 5.0f;
 
     public string sideCollision = "";
     public string collisionTag = "";
-    
+
+    //Mouse data for aiming weapon
+    Vector2 moveDirect;
+    Vector2 mousePos;
+
     // Bounds of player on map
     public Transform topLeft;
     public Transform bottomRight;
@@ -38,7 +43,18 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update(){
+        //Data for shooting a ranged weapon
+        //Data for shooting a ranged weapon
+        float mX = Input.GetAxisRaw("Horizontal");
+        float mY = Input.GetAxisRaw("Vertical");
+        if (Input.GetMouseButtonDown(0))
+        {
+            rweapon.Shoot();
+        }
+        moveDirect = new Vector2(mX, mY).normalized;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        //Player Movement
         rbPlayer.velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f)*speed;
         animator.SetFloat("Horizontal", rbPlayer.velocity.x);
         animator.SetFloat("Vertical", rbPlayer.velocity.y);
