@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
-    public PlayerWeapons rweapon;
+     public PlayerWeapons rweapon;
     public float speed = 5.0f;
 
     public string sideCollision = "";
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     //Mouse data for aiming weapon
     Vector2 moveDirect;
     Vector2 mousePos;
-
+    
     // Bounds of player on map
     public Transform topLeft;
     public Transform bottomRight;
@@ -60,17 +60,14 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", rbPlayer.velocity.y);
         animator.SetFloat("Magnitude", rbPlayer.velocity.magnitude);
         this.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),Mathf.Clamp(transform.position.y, yMin, yMax), this.transform.position.z);
-        
-        if(isSearching){
-            searchbtn.button.SetActive(true);
-        }
 
     }
     // Performed when player collides with an object
     private void OnCollisionEnter2D(Collision2D collision){
-        // Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+        
         collisionTag = collision.gameObject.tag;
-        if(collisionTag == "Tree"){
+
+        if(collisionTag == "Tree"){ // Did player hit a tree
            Debug.Log("Touching tree");
            tree = collision.gameObject;
             
@@ -78,23 +75,25 @@ public class PlayerController : MonoBehaviour
             btn.button.SetActive(true);
             CheckCollidingSide(btn.tree);
       
-        }else if(collisionTag == "Neighbor"){
-            //Search
+        }else if(collisionTag == "Neighbor"){ // Did player hit a neighboring house
             building = collision.gameObject;
             searchbtn.button.SetActive(true);
-            //Random number of items (food, scrap, rarely water)
-            //No more than +10 items in total
-        }else if(collisionTag == "LakeHouse"){
-            //Fish (food, water)
+            searchbtn.building = building;
+
+        }else if(collisionTag == "LakeHouse"){ // Did player hit lakehouse
+          
             building = collision.gameObject;
-            //No more than +3 fish 
-        }else if(collisionTag == "Wind"){
-            //Search (water, scrap, rare item)
+            
+        }else if(collisionTag == "Wind"){ //  Did player hit the windmill
+           
             building = collision.gameObject;
             searchbtn.button.SetActive(true);
-        }else if(collisionTag =="Home"){
+
+        }else if(collisionTag =="Home"){// Player hit house
+
             building = collision.gameObject;
             home.button.SetActive(true);
+            home.button.transform.position = building.transform.position;
         }
 
     }
@@ -109,6 +108,7 @@ public class PlayerController : MonoBehaviour
             sideCollision = "left";
         }
     }
+
     // Performed when the player stops colliding with an object
     private void OnCollisionExit2D(Collision2D collision){
         // Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : " + Time.time);
@@ -118,20 +118,18 @@ public class PlayerController : MonoBehaviour
             ButtonController btn = Camera.main.GetComponent<ButtonController>();
             btn.button.SetActive(false);
         }else if(collision.gameObject.tag == "Neighbor"){
-            //Search
+              // Disable search button if player isn't searching
             if(!isSearching)
                 searchbtn.button.SetActive(false);
-            //Random number of items (food, scrap, rarely water)
-            //No more than +10 items in total
         }else if(collision.gameObject.tag == "LakeHouse"){
             //Fish (food, water)
             //No more than +3 fish 
         }else if(collision.gameObject.tag == "Wind"){
-            //Search (water, scrap, rare item)
-            
+            // Disable search button if player isn't searching
             if(!isSearching)
                 searchbtn.button.SetActive(false);
         }else if(collision.gameObject.tag == "Home"){
+            // Disable visit home if not touching home
             home.button.SetActive(false);
         }
     }

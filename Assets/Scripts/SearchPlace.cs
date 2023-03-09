@@ -32,11 +32,17 @@ public class SearchPlace : MonoBehaviour
         }
         
         if(isSearching){
+
+            // Move button off screen
             button.transform.position = new Vector3(500000,0,-500000);
+            // Make Timer visible
             timerObject.SetActive(true);
             timerObject.transform.position = player.GetComponent<PlayerController>().building.transform.position;
+            // Start Timer animation
             animTimer.SetBool("isSearching", true);
+            // Make the player invisible
             player.SetActive(false);
+            // Increment timer each frame
             timer += Time.deltaTime;
             
             if(timer > searchTime){
@@ -46,6 +52,7 @@ public class SearchPlace : MonoBehaviour
                 timerObject.SetActive(false);
                 player.SetActive(true);
                 player.GetComponent<PlayerController>().isSearching = false;
+                // After searching, add resources
                 AddResources(player.GetComponent<PlayerController>().collisionTag);
             }
         }

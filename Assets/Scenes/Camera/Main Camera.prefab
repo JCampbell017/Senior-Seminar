@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 494074227065197919}
   - component: {fileID: 494074227065197987}
   - component: {fileID: 8675353151160658871}
+  - component: {fileID: 4679033197260314732}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -116,3 +117,26 @@ MonoBehaviour:
   button: {fileID: 0}
   tree: {fileID: 0}
   player: {fileID: 0}
+  home: {fileID: 0}
+  isChopping: 0
+--- !u!114 &4679033197260314732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494074227065197918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b88e815f1b0e984d8898eed5eb07246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  building: {fileID: 0}
+  player: {fileID: 0}
+  home: {fileID: 0}
+  button: {fileID: 0}
+  timerObject: {fileID: 0}
+  animTimer: {fileID: 0}
+  timer: 0
+  searchTime: 2
+  isSearching: 0
