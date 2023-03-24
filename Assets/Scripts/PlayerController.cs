@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject building;
     public SearchPlace searchbtn;
     public bool isSearching = false;
-    public Home home;
+
     void Start(){
         animator = GetComponent<Animator>();
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -89,11 +89,6 @@ public class PlayerController : MonoBehaviour
             building = collision.gameObject;
             searchbtn.button.SetActive(true);
 
-        }else if(collisionTag =="Home"){// Player hit house
-
-            building = collision.gameObject;
-            home.button.SetActive(true);
-            home.button.transform.position = building.transform.position;
         }
 
     }
@@ -128,9 +123,6 @@ public class PlayerController : MonoBehaviour
             // Disable search button if player isn't searching
             if(!isSearching)
                 searchbtn.button.SetActive(false);
-        }else if(collision.gameObject.tag == "Home"){
-            // Disable visit home if not touching home
-            home.button.SetActive(false);
         }
     }
 
