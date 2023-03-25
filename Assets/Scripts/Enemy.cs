@@ -26,14 +26,14 @@ public class Enemy : MonoBehaviour
     Animator animEnemy; 
 
     float timer = 0.0f;
-    float timeToSpawn = 300.0f;
+    float timeToSpawn = 20.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        // animEnemy = GetComponent<Animator>();
+        animEnemy = GetComponent<Animator>();
         SetEnemyValues();
     }
 
@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
         timer += Time.deltaTime;
         if(player != null && timer > timeToSpawn)
             LightEnemy();
+        
     }
 
     private void SetEnemyValues()
@@ -57,8 +58,9 @@ public class Enemy : MonoBehaviour
         if(Vector2.Distance(transform.position, player.transform.position) > range)
         {
             isMoving = true;
+            animEnemy.SetBool("IsMoving", true);
+            Debug.Log("Enemy Moving");
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            // animEnemy.SetBool("isMoving", isMoving);
             if(transform.position.x > player.transform.position.x){
                 GetComponent<SpriteRenderer> ().flipX = true;
             }else{
@@ -66,7 +68,7 @@ public class Enemy : MonoBehaviour
             }
         }else{
             isMoving = false;
-            // animEnemy.SetBool("isMoving", isMoving);
+            animEnemy.SetBool("IsMoving", false);
         }
         
     }
