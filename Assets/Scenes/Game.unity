@@ -4091,9 +4091,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
-      propertyPath: m_TileSpriteArray.Array.data[15].m_Data
+      propertyPath: m_TileSpriteArray.Array.data[13].m_Data
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[14].m_Data
+      value: 
+      objectReference: {fileID: -582887526, guid: f124db9868e273a4c80257cdd8201344, type: 3}
+    - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[15].m_Data
+      value: 
+      objectReference: {fileID: 765454881, guid: f124db9868e273a4c80257cdd8201344, type: 3}
     - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
       propertyPath: m_Tiles.Array.data[1].second.m_TileIndex
       value: 4
@@ -4115,16 +4123,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
-      propertyPath: m_TileSpriteArray.Array.data[15].m_RefCount
+      propertyPath: m_TileSpriteArray.Array.data[13].m_RefCount
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[15].m_RefCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
       propertyPath: m_Tiles.Array.data[1].second.m_TileSpriteIndex
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1284414181126657336, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
       propertyPath: m_Tiles.Array.data[2].second.m_TileSpriteIndex
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1284414181291441504, guid: 5455990ca5167bf43be6b8a0cdf6c83f, type: 3}
       propertyPath: m_Size.x

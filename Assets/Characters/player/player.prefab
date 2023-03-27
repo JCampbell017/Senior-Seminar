@@ -531,7 +531,6 @@ MonoBehaviour:
   building: {fileID: 0}
   searchbtn: {fileID: 0}
   isSearching: 0
-  home: {fileID: 0}
 --- !u!50 &4665110119403943916
 Rigidbody2D:
   serializedVersion: 4
@@ -599,6 +598,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3230621412354428483
 MonoBehaviour:
   m_ObjectHideFlags: 0
