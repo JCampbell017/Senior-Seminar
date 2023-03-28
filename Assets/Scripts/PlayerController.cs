@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{   // Player Components
+{   
+    public GameObject player;
+    // Player Components
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
@@ -60,6 +62,29 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", rbPlayer.velocity.y);
         animator.SetFloat("Magnitude", rbPlayer.velocity.magnitude);
         this.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),Mathf.Clamp(transform.position.y, yMin, yMax), this.transform.position.z);
+
+    }
+
+    // attach to buttons to save 
+    public void SavePlayer(){
+        Save.SavePlayer(this);
+    }
+
+    // attach to button to load game on start up
+    public void LoadPlayer(){
+        PlayerData data = Save.LoadPlayer();
+        Home.food = data.food;
+        Home.water = data.water;
+        Home.scrap = data.scrap;
+        Home.wood = data.wood;
+        player.GetComponent<Health>().health = data.health; 
+        
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+
+        player.transform.position = position;
 
     }
     // Performed when player collides with an object
