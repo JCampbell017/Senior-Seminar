@@ -5,10 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public double food;
-    public double water;
-    public double scrap;
-    public double wood;
+    public float food;
+    public float water;
+    public float scrap;
+    public float wood;
     public int health;
     public float[] position;
 

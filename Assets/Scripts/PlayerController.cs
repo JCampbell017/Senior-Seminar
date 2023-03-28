@@ -65,28 +65,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // attach to buttons to save 
-    public void SavePlayer(){
-        Save.SavePlayer(this);
-    }
-
-    // attach to button to load game on start up
-    public void LoadPlayer(){
-        PlayerData data = Save.LoadPlayer();
-        Home.food = data.food;
-        Home.water = data.water;
-        Home.scrap = data.scrap;
-        Home.wood = data.wood;
-        player.GetComponent<Health>().health = data.health; 
-        
-        Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-
-        player.transform.position = position;
-
-    }
+    
+    
     // Performed when player collides with an object
     private void OnCollisionEnter2D(Collision2D collision){
         
