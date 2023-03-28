@@ -30,6 +30,10 @@ public class Health : MonoBehaviour
         healthBar.setMaxHealth(maxHealth);
     }
 
+    public int GetHealth(){
+        return health;
+    }
+
     public void Damage(int amount)
     {
         if (amount < 0)
