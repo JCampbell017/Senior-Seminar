@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Home : MonoBehaviour
 {
-    public static double food = 0;
-    public static double water = 0;
-    public static double scrap = 0;
-    public static double wood = 0; 
+    public static float food = 0f;
+    public static float water = 0f;
+    public static float scrap = 0f;
+    public static float wood = 0f; 
     public GameObject house;
    
     // Start is called before the first frame update
@@ -29,11 +29,11 @@ public class Home : MonoBehaviour
     //Method to control the amount of food, water, and scrap gain/loss. Default is 1 per method call
     void Passive_Resource_Change(){
         if(food > 0)
-            food -= 1;
+            food -= 1f;
         if(water >0)
-            water -= 1;
-        scrap += 1;
+            water -= 1f;
+        scrap += 1f;
         if(wood > 0)
-            wood -=1;
+            wood -=1f;
     }
 }

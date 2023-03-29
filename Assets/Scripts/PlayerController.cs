@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{   // Player Components
+{   
+    public GameObject player;
+    // Player Components
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
@@ -62,6 +64,9 @@ public class PlayerController : MonoBehaviour
         this.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),Mathf.Clamp(transform.position.y, yMin, yMax), this.transform.position.z);
 
     }
+
+    
+    
     // Performed when player collides with an object
     private void OnCollisionEnter2D(Collision2D collision){
         

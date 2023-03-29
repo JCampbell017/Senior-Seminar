@@ -1816,6 +1816,7 @@ MonoBehaviour:
   currentState: 0
   mainMenu: {fileID: 1130143317}
   settingsMenu: {fileID: 1093983651}
+  player: {fileID: 0}
 --- !u!4 &1913534937
 Transform:
   m_ObjectHideFlags: 0
