@@ -32,7 +32,7 @@ public class SaveSystem : MonoBehaviour
     }
 
     public void LoadNewPlayer(){
-        PlayerData data = Save.LoadPlayer();
+      
         Home.food = 0;
         Home.water = 0;
         Home.scrap = 0;
