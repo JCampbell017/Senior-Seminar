@@ -4,14 +4,14 @@ using UnityEngine;
 
 [System.Serializable]
 public class PlayerData
-{
+{   // Attributes
     public float food;
     public float water;
     public float scrap;
     public float wood;
     public int health;
     public float[] position;
-
+    // Constructor
     public PlayerData(PlayerController player){
         food = Home.food;
         water = Home.water;
