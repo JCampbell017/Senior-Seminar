@@ -3,7 +3,18 @@ guid: fb6a342034e0e654180986d793cb35f3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {fileID: 4851018949654238171, guid: 9bf319725fcb62e43a0bc26ef08c8be1, type: 3}
+  - animator: {instanceID: 0}
+  - rbPlayer: {instanceID: 0}
+  - colPlayer: {instanceID: 0}
+  - rweapon: {instanceID: 0}
+  - topLeft: {instanceID: 0}
+  - bottomRight: {instanceID: 0}
+  - tree: {instanceID: 0}
+  - btn: {instanceID: 0}
+  - building: {instanceID: 0}
+  - searchbtn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

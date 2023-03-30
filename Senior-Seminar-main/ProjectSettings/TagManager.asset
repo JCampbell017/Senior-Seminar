@@ -6,11 +6,6 @@ TagManager:
   tags:
   - Tree
   - Enemy
-  - Timer
-  - Neighbor
-  - Store
-  - Wind
-  - LakeHouse
   layers:
   - Default
   - TransparentFX
@@ -18,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Obstacle
+  - 
   - 
   - 
   - 

@@ -13,11 +13,13 @@ public class MainMenu : MonoBehaviour
     //Menu Panel Objects
     public GameObject mainMenu;
     public GameObject settingsMenu;
+    public GameObject player;
 
     //When script begins
     void Awake()
     {
         currentState = MenuStates.Main;
+        DontDestroyOnLoad (player);
     }
 
     void Update()
@@ -37,6 +39,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame() 
     {
     	SceneManager.LoadScene("Game");
+        SceneManager.MoveGameObjectToScene(player,  SceneManager.GetSceneByName("Game"));
     }
     
     public void GoToSettingsMenu()

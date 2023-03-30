@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
+    // Had to temporarily make the health variable public for the saving progress
+    [SerializeField] public int health = 100;
 
     private int MAX_HEALTH = 100;
     public HealthBar healthBar;
@@ -19,7 +20,7 @@ public class Health : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Heal(10);
+            //Heal(10);
         }
     }
 
@@ -28,6 +29,10 @@ public class Health : MonoBehaviour
         this.MAX_HEALTH = maxHealth;
         this.health = health;
         healthBar.setMaxHealth(maxHealth);
+    }
+
+    public int GetHealth(){
+        return health;
     }
 
     public void Damage(int amount)

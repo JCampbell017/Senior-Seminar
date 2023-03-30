@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{   // Player Components
+{   
+    public GameObject player;
+    // Player Components
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
-    public PlayerWeapons rweapon;
+     public PlayerWeapons rweapon;
     public float speed = 5.0f;
 
     public string sideCollision = "";
     public string collisionTag = "";
 
     //Mouse data for aiming weapon
-    //Vector2 moveDirect;
-    //Vector2 mousePos;
+    Vector2 moveDirect;
+    Vector2 mousePos;
     
     // Bounds of player on map
     public Transform topLeft;
@@ -44,14 +46,15 @@ public class PlayerController : MonoBehaviour
 
     void Update(){
         //Data for shooting a ranged weapon
-        //float mX = Input.GetAxisRaw("Horizontal");
-        //float mY = Input.GetAxisRaw("Vertical");
+        //Data for shooting a ranged weapon
+        float mX = Input.GetAxisRaw("Horizontal");
+        float mY = Input.GetAxisRaw("Vertical");
         if (Input.GetMouseButtonDown(0))
         {
             rweapon.Shoot();
         }
-        //moveDirect = new Vector2(mX, mY).normalized;
-        //mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        moveDirect = new Vector2(mX, mY).normalized;
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //Player Movement
         rbPlayer.velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f)*speed;
@@ -61,6 +64,9 @@ public class PlayerController : MonoBehaviour
         this.transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),Mathf.Clamp(transform.position.y, yMin, yMax), this.transform.position.z);
 
     }
+
+    
+    
     // Performed when player collides with an object
     private void OnCollisionEnter2D(Collision2D collision){
         

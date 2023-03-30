@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,7 +16,6 @@ public class Enemy : MonoBehaviour
 
     private GameObject player;
 
-
     public float offset = 0.05f;
     public Rigidbody2D rbPlayer;
 
@@ -28,8 +26,6 @@ public class Enemy : MonoBehaviour
     Animator animEnemy; 
 
     float timer = 0.0f;
-
-    [SerializeField]
     float timeToSpawn = 20.0f;
 
     // Start is called before the first frame update
@@ -59,7 +55,7 @@ public class Enemy : MonoBehaviour
 
     private void LightEnemy()
     {
-        if(Vector2.Distance(transform.position, player.transform.position) >= range)
+        if(Vector2.Distance(transform.position, player.transform.position) > range)
         {
             isMoving = true;
             animEnemy.SetBool("IsMoving", true);
