@@ -9,11 +9,11 @@ public class World : MonoBehaviour{
     public static int current_day;
     //1 for day, 2 for night
     public static int day_or_night;
-    private static string season;
+    public static string season;
     public static int season_farm_penalty;
 
-    private DateTime current_time;
-    private DateTime last_day_time;
+    public DateTime current_time;
+    public DateTime last_day_time;
     public DateTime counter;
 
     [SerializeField] [Range(0, seconds_per_day)] private float _realtimeDayLength = 60;
