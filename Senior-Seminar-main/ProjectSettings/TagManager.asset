@@ -6,11 +6,16 @@ TagManager:
   tags:
   - Tree
   - Enemy
+  - Timer
+  - Neighbor
+  - Store
+  - Wind
+  - LakeHouse
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstacle
   - Water
   - UI
   - 

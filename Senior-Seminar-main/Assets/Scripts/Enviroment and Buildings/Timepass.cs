@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,30 +16,35 @@ public class Timepass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // DateTime dawn = dawn.Second(60);
+        // DateTime midday = midday.Second(120);
+        // DateTime afternoon = afternoon.Second(180);
+        // DateTime evening = evening.Second();
+
         //when night lower light intensity
-        if(day_or_night == 2){
-            sun.intensity = .5;
+        if(World.day_or_night == 2){
+            sun.intensity = .5f;
         }
-        if(day_or_night == 1){
-            sun.intensity = 2;
+        if(World.day_or_night == 1){
+            sun.intensity = 2f;
         }
         //Dawn
-        if(counter < 60){
+        if(World.counter < dawn){
             float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.x, 45f, 10f * Time.deltaTime); 
             transform.eulerAngles = new Vector3(angle, -90, 0);
         }
         //Midday
-        if(counter < 120 && counter > 60){
+        if(World.counter < midday && World.counter > dawn){
             float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.x, 90f, 10f * Time.deltaTime);
             transform.eulerAngles = new Vector3(angle, -90, 0);
         }
         //Afternoon
-        if(counter < 180 && counter > 120){
+        if(World.counter < afternoon && World.counter > midday){
             float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.x, 135f, 10f * Time.deltaTime);
             transform.eulerAngles = new Vector3(angle, -90, 0);
         }
         //Evening
-        if(counter < 240 && counter > 180){
+        if(World.counter < evening && World.counter > afternoon){
             float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.x, 180f, 10f * Time.deltaTime); 
             transform.eulerAngles = new Vector3(angle, -90, 0);
         }

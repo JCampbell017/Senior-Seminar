@@ -20,12 +20,6 @@ public class Home : MonoBehaviour
         // InvokeRepeating("Show", 5.0f, 5.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //Method to control the amount of food, water, and scrap gain/loss. Default is 1 per method call
     void Passive_Resource_Change(){
         if(food > 0)
