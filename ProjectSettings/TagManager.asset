@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Tree
   - Enemy
+  - Neighbor
+  - Store
+  - Wind
+  - LakeHouse
+  - Home
   layers:
   - Default
   - TransparentFX
