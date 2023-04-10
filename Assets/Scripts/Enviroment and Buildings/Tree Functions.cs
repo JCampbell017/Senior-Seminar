@@ -8,13 +8,13 @@ public class TreeFunctions : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start(){
-        Tree = GetComponent<tree>();
+        Component Tree = GetComponent<tree>();
         generate_position();
     }
 
     // Update is called once per frame
     void Update(){
-        if(is_broke == true && tree_count < World.max_tree_count){
+        if(is_broke == true && World.tree_count < World.max_tree_count){
             generate_position();
         }
     }
@@ -22,13 +22,13 @@ public class TreeFunctions : MonoBehaviour {
     void generate_position(){
         //generate a random x and y position
         bool finding_pos = true;
-        float x_pos = Random.Random(-2, 2);
-        float y_pos = Random.Random(-2, 2);
+        float x_pos = UnityEngine.Random.Range(-2, 2);
+        float y_pos = UnityEngine.Random.Range(-2, 2);
         //if tree colliding with another collision box generate new x and y positions
         while(finding_pos){
             if(collision.collider == BoxCollider2D){
-                x_pos = Random.Random(-2, 2);
-                y_pos = Random.Random(-2, 2);
+                x_pos = UnityEngine.Random.Range(-2, 2);
+                y_pos = UnityEngine.Random.Range(-2, 2);
             }
             //if no collision detected, end
             else{

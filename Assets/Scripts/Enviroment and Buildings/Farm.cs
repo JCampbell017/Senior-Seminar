@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,13 +16,13 @@ public class Farm : MonoBehaviour{
     void Food_Gain(){
         // resource generation
         if(farm_tier == 3){
-            Home.food += (20 - (World.season_farm_penalty/2)) * event_check();
+            Home.food += Convert.ToSingle((20 - (World.season_farm_penalty/2)) * event_check());
         }
         else if(farm_tier == 2){
-            Home.food += (15 - (World.season_farm_penalty/2)) * event_check();
+            Home.food += Convert.ToSingle((15 - (World.season_farm_penalty/2)) * event_check());
         }
         else{
-            Home.food += (10 - (World.season_farm_penalty/2)) * event_check();
+            Home.food += Convert.ToSingle((10 - (World.season_farm_penalty/2)) * event_check());
         }
     }
 
@@ -32,27 +33,27 @@ public class Farm : MonoBehaviour{
 
         //75% chance for nothing to happen
         //25% chance for test event to happen
-        farm_event = Random.Range(1, 100);
-        double modifier = 1;
+        farm_event = UnityEngine.Random.Range(1, 100);
+        double modifier = 1f;
 
         if(farm_event < 75){
             //do nothing
-            modifier = 1;
+            modifier = 1f;
             event_text.text = "All is good";
         }
         //Animals eat harvest - loose 3/4 crop yield
         else if(farm_event > 75 && farm_event < 80){
-            modifier = .25;
+            modifier = .25f;
             event_text.text = "Animals have gotten into your field and ate most of your crops";
         }
         //Drought - loose 1/2 crop yield
         else if(farm_event > 80 && farm_event < 85){
-            modifier = .5;
+            modifier = .5f;
             event_text.text = "Your farm couldn't get enough water, half your crops have withered";
         }
         //Rotten - loose 1/4 crop yield
         else if(farm_event > 85 && farm_event < 90){
-            modifier = .75;
+            modifier = .75f;
             event_text.text = "A quarter of your crops have rotted";
         }
         // //another event?
