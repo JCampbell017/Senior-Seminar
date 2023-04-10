@@ -8,9 +8,9 @@ public class PlayerInv : MonoBehaviour
     private static float max_water = 50;
     private static float max_scrap = 50;
 
-    private static float carrying_food;
-    private static float carrying_water;
-    private static float carrying_scrap; 
+    public static float carrying_food;
+    public static float carrying_water;
+    public static float carrying_scrap; 
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class PlayerInv : MonoBehaviour
         }
     }
 
-    public void deposit_resources(){
+    public static void deposit_resources(){
         Home.food += carrying_food;
         carrying_food = 0;
         Home.water += carrying_water;

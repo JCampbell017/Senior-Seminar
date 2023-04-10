@@ -30,4 +30,8 @@ public class Home : MonoBehaviour
         if(wood > 0)
             wood -=1f;
     }
+
+    private void OnTriggerEnter(Collider collider){
+        
+    }
 }

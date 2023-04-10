@@ -16,11 +16,14 @@ public class SearchPlace : MonoBehaviour
     public float searchTime = 2.0f;
     public bool isSearching = false;
 
+    // public PlayerInv playerInventory;
+
     // Start is called before the first frame update
     void Start()
     {
         button.SetActive(false);
         animator = player.GetComponent<Animator>();
+        // playerInventory = player.GetComponent<PlayerInv>();
     }
 
     // Update is called once per frame
@@ -65,14 +68,18 @@ public class SearchPlace : MonoBehaviour
         float scrap_gain = Random.Range(0, 10);
         
         if(building == "Neighbor"){
-            Home.food += food_gain;
-            Home.water += water_gain;
-            Home.scrap += scrap_gain;
+            // Home.food += food_gain;
+            // Home.water += water_gain;
+            // Home.scrap += scrap_gain;
+            PlayerInv.update_player_inv("food", food_gain);
+            PlayerInv.update_player_inv("water", water_gain);
+            PlayerInv.update_player_inv("scrap", scrap_gain);
+
         }else if(building == "Store"){
-            Home.food += food_gain;
-            Home.water += water_gain;
+            PlayerInv.update_player_inv("food", food_gain);
+            PlayerInv.update_player_inv("water", water_gain);
         }else if(building == "Wind"){
-            Home.water += Random.Range(5, 10);
+            PlayerInv.update_player_inv("water", Random.Range(5, 10));
         }else if(building == "LakeHouse"){
             // add fish
         }
