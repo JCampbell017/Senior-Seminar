@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonController : MonoBehaviour
+public class TreeButtonController : MonoBehaviour
 {
     public GameObject button;
     public GameObject tree;
@@ -14,6 +14,9 @@ public class ButtonController : MonoBehaviour
     private float chopTime = 3.0f;
 
     public bool isChopping = false;
+
+    // Audio
+    public AudioSource chopSound;
    
 
     void Start()
@@ -35,6 +38,7 @@ public class ButtonController : MonoBehaviour
             
             PlayerController plControl = player.GetComponent<PlayerController>();
             timer += Time.deltaTime;
+            
             if(timer > chopTime){
                 timer = 0;
                 isChopping = false;
@@ -60,6 +64,7 @@ public class ButtonController : MonoBehaviour
         animator.SetBool("chopTree", true);
         isChopping = true;
         button.transform.position = new Vector3(500000,0,-500000);
+        chopSound.Play();
     }
 
 }

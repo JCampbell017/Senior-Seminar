@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private float xMin, xMax, yMin, yMax;
     // Tree Chopping Vars
     public GameObject tree;
-    public ButtonController btn;
+    public TreeButtonController btn;
     //Search
     public GameObject building;
     public SearchPlace searchbtn;
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Tree"){
            Debug.Log("Touching tree");
            
-            ButtonController btn = Camera.main.GetComponent<ButtonController>();
+            TreeButtonController btn = Camera.main.GetComponent<TreeButtonController>();
             btn.button.SetActive(false);
         }else if(collision.gameObject.tag == "Neighbor"){
               // Disable search button if player isn't searching
