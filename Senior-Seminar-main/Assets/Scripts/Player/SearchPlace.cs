@@ -7,7 +7,8 @@ public class SearchPlace : MonoBehaviour
     public GameObject building;
     public GameObject player;
     public GameObject home;
-    public GameObject button;
+    public GameObject searchButton;
+    public GameObject fishButton;
     public GameObject timerObject;
     public Animator animTimer;
     Animator animator;
@@ -21,7 +22,8 @@ public class SearchPlace : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.SetActive(false);
+        searchButton.SetActive(false);
+        fishButton.SetActive(false);
         animator = player.GetComponent<Animator>();
         // playerInventory = player.GetComponent<PlayerInv>();
     }
@@ -31,14 +33,40 @@ public class SearchPlace : MonoBehaviour
     {
         if(building != null){
             Vector3 searchTimerPosition = Camera.main.WorldToScreenPoint(player.GetComponent<PlayerController>().building.transform.position);
-            button.transform.position = searchTimerPosition;
+            searchButton.transform.position = searchTimerPosition;
         }
         
         if(isSearching){
 
-            // Move button off screen
-            button.transform.position = new Vector3(500000,0,-500000);
-            // Make Timer visible
+            // Move searchButton off screen
+            searchButton.transform.position = new Vector3(500000,0,-500000);
+            // // Make Timer visible
+            // timerObject.SetActive(true);
+            // timerObject.transform.position = player.GetComponent<PlayerController>().building.transform.position;
+            // // Start Timer animation
+            // animTimer.SetBool("isSearching", true);
+            // // Make the player invisible
+            // player.SetActive(false);
+            // // Increment timer each frame
+            // timer += Time.deltaTime;
+            
+            // if(timer > searchTime){
+            //     isSearching = false;
+            //     timer = 0.0f;
+            //     animTimer.SetBool("isSearching", false);
+            //     timerObject.SetActive(false);
+            //     player.SetActive(true);
+            //     player.GetComponent<PlayerController>().isSearching = false;
+            //     // After searching, add resources
+            //     AddResources(player.GetComponent<PlayerController>().collisionTag);
+            // }
+            startSearching();
+        }
+        
+    }
+
+    private void startSearching(){
+        // Make Timer visible
             timerObject.SetActive(true);
             timerObject.transform.position = player.GetComponent<PlayerController>().building.transform.position;
             // Start Timer animation
@@ -58,8 +86,6 @@ public class SearchPlace : MonoBehaviour
                 // After searching, add resources
                 AddResources(player.GetComponent<PlayerController>().collisionTag);
             }
-        }
-        
     }
 
     void AddResources(string building){
@@ -68,9 +94,6 @@ public class SearchPlace : MonoBehaviour
         float scrap_gain = Random.Range(0, 10);
         
         if(building == "Neighbor"){
-            // Home.food += food_gain;
-            // Home.water += water_gain;
-            // Home.scrap += scrap_gain;
             PlayerInv.update_player_inv("food", food_gain);
             PlayerInv.update_player_inv("water", water_gain);
             PlayerInv.update_player_inv("scrap", scrap_gain);
@@ -85,10 +108,17 @@ public class SearchPlace : MonoBehaviour
         }
     }
 
-    public void OnClick(){
+    public void OnSearchClick(){
         if(!isSearching){
             player.GetComponent<PlayerController>().isSearching = true;
             isSearching = true;
         }
+    }
+
+    public void OnFishClick(){
+        // if(!isFishing){
+        //     isFishing = true;
+        //     // player.GetComponent<PlayerController>().isFishing = true;
+        // }
     }
 }

@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
       
         }else if(collisionTag == "Neighbor"){ // Did player hit a neighboring house
             building = collision.gameObject;
-            searchbtn.button.SetActive(true);
+            searchbtn.searchButton.SetActive(true);
             searchbtn.building = building;
 
         }else if(collisionTag == "LakeHouse"){ // Did player hit lakehouse
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }else if(collisionTag == "Wind"){ //  Did player hit the windmill
            
             building = collision.gameObject;
-            searchbtn.button.SetActive(true);
+            searchbtn.searchButton.SetActive(true);
 
         }
 
@@ -126,14 +126,14 @@ public class PlayerController : MonoBehaviour
         }else if(collision.gameObject.tag == "Neighbor"){
               // Disable search button if player isn't searching
             if(!isSearching)
-                searchbtn.button.SetActive(false);
+                searchbtn.searchButton.SetActive(false);
         }else if(collision.gameObject.tag == "LakeHouse"){
             //Fish (food, water)
             //No more than +3 fish 
         }else if(collision.gameObject.tag == "Wind"){
             // Disable search button if player isn't searching
             if(!isSearching)
-                searchbtn.button.SetActive(false);
+                searchbtn.searchButton.SetActive(false);
         }
     }
 
