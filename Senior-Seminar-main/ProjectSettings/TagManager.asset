@@ -11,6 +11,7 @@ TagManager:
   - Store
   - Wind
   - LakeHouse
+  - House
   layers:
   - Default
   - TransparentFX

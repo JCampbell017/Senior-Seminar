@@ -96,6 +96,12 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if(collisionTag == "House"){
+            PlayerInv.deposit_resources();
+            Debug.Log("Player touched house");
+        }
+        
+
     }
 
     // Check which side a tree object collides with the character
