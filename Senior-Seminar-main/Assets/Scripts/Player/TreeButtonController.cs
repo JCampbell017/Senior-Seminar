@@ -15,6 +15,8 @@ public class TreeButtonController : MonoBehaviour
 
     public bool isChopping = false;
 
+    // TreeFunctions treeRegen;
+
     // Audio
     public AudioSource chopSound;
    
@@ -31,6 +33,7 @@ public class TreeButtonController : MonoBehaviour
         if(tree != null && !isChopping){
             Vector3 treePosition = Camera.main.WorldToScreenPoint(tree.transform.position);
             button.transform.position = treePosition + new Vector3(0, 4.0f, 0);
+            // treeRegen = tree.GetComponent<TreeFunctions>();
         }
 
         
@@ -44,7 +47,10 @@ public class TreeButtonController : MonoBehaviour
                 isChopping = false;
                 animator.SetBool("chopTree", false);
                 // Need to destroy tree somehow
-               Destroy(tree);
+                tree.GetComponent<TreeFunctions>().setIsBroke(true);
+                Destroy(tree);
+                Camera.main.GetComponent<TreeFunctions>().RemoveTree();
+                
                 Home.wood +=3;
                 Debug.Log(Home.wood);
 
