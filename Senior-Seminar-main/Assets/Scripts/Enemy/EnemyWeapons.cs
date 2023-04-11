@@ -21,15 +21,17 @@ public class EnemyWeapons : MonoBehaviour
 
     private void Update()
     {
-        float dis = Vector2.Distance(transform.position, player.transform.position);
-        if (dis < 1)
-        {
-            timer += Time.deltaTime;
-
-            if (timer > 2)
+        if(player != null){
+            float dis = Vector2.Distance(transform.position, player.transform.position);
+            if (dis < 1)
             {
-                timer = 0;
-                Shoot();
+                timer += Time.deltaTime;
+
+                if (timer > 2)
+                {
+                    timer = 0;
+                    Shoot();
+                }
             }
         }
     }

@@ -954,7 +954,11 @@ PrefabInstance:
       objectReference: {fileID: 309628545801974608, guid: 564fedabfe62bd5439a41debe47e7d9a, type: 3}
     - target: {fileID: 3681156213616869516, guid: 63bb4d5ed3460724c98bf33e927ab40e, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681156213616869516, guid: 63bb4d5ed3460724c98bf33e927ab40e, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3681156213616869517, guid: 63bb4d5ed3460724c98bf33e927ab40e, type: 3}
       propertyPath: m_Size.y
@@ -2457,6 +2461,10 @@ PrefabInstance:
       propertyPath: animTimer
       value: 
       objectReference: {fileID: 1771981216}
+    - target: {fileID: 874411867178559125, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
+      propertyPath: lakeHouse
+      value: 
+      objectReference: {fileID: 1396231037}
     - target: {fileID: 874411867178559125, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: fishButton
       value: 
@@ -4333,10 +4341,13 @@ MonoBehaviour:
   searchButton: {fileID: 877923203}
   fishButton: {fileID: 1127246607}
   timerObject: {fileID: 1771981217}
+  lakeHouse: {fileID: 1396231037}
   animTimer: {fileID: 1771981216}
   timer: 0
   searchTime: 2
+  fishTime: 8
   isSearching: 0
+  isFishing: 0
 --- !u!1 &1159134923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,6 +5389,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2070207932619760872, guid: 345411c9c92642240a98f005de886571, type: 3}
   m_PrefabInstance: {fileID: 1387439295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1396231037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7539241147902037736, guid: 9cedef4958edecd44ada351838156fe2, type: 3}
+  m_PrefabInstance: {fileID: 50412906}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1426850208
 GameObject:
@@ -13719,7 +13735,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3681156213616869516, guid: 63bb4d5ed3460724c98bf33e927ab40e, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681156213616869516, guid: 63bb4d5ed3460724c98bf33e927ab40e, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3681156213616869517, guid: 63bb4d5ed3460724c98bf33e927ab40e, type: 3}
       propertyPath: m_Size.y

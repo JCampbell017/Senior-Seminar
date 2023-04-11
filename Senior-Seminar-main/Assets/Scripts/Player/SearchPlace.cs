@@ -10,12 +10,15 @@ public class SearchPlace : MonoBehaviour
     public GameObject searchButton;
     public GameObject fishButton;
     public GameObject timerObject;
+    public GameObject lakeHouse;
     public Animator animTimer;
     Animator animator;
 
     public float timer = 0.0f;
     public float searchTime = 2.0f;
+    public float fishTime = 8.0f;
     public bool isSearching = false;
+    public bool isFishing = false;
 
     // public PlayerInv playerInventory;
 
@@ -23,6 +26,7 @@ public class SearchPlace : MonoBehaviour
     void Start()
     {
         searchButton.SetActive(false);
+        
         fishButton.SetActive(false);
         animator = player.GetComponent<Animator>();
         // playerInventory = player.GetComponent<PlayerInv>();
@@ -34,33 +38,27 @@ public class SearchPlace : MonoBehaviour
         if(building != null){
             Vector3 searchTimerPosition = Camera.main.WorldToScreenPoint(player.GetComponent<PlayerController>().building.transform.position);
             searchButton.transform.position = searchTimerPosition;
+            fishButton.transform.position = Camera.main.WorldToScreenPoint(player.GetComponent<PlayerController>().building.transform.position);
         }
         
         if(isSearching){
 
             // Move searchButton off screen
             searchButton.transform.position = new Vector3(500000,0,-500000);
-            // // Make Timer visible
-            // timerObject.SetActive(true);
-            // timerObject.transform.position = player.GetComponent<PlayerController>().building.transform.position;
-            // // Start Timer animation
-            // animTimer.SetBool("isSearching", true);
-            // // Make the player invisible
-            // player.SetActive(false);
-            // // Increment timer each frame
-            // timer += Time.deltaTime;
-            
-            // if(timer > searchTime){
-            //     isSearching = false;
-            //     timer = 0.0f;
-            //     animTimer.SetBool("isSearching", false);
-            //     timerObject.SetActive(false);
-            //     player.SetActive(true);
-            //     player.GetComponent<PlayerController>().isSearching = false;
-            //     // After searching, add resources
-            //     AddResources(player.GetComponent<PlayerController>().collisionTag);
-            // }
             startSearching();
+        }
+        if(isFishing){
+            fishButton.transform.position = new Vector3(500000,0,-500000);
+            player.SetActive(false);
+            timer += Time.deltaTime;
+            if(timer > searchTime){
+                isFishing = false;
+                timer = 0.0f;
+                player.SetActive(true);
+                player.GetComponent<PlayerController>().isFishing = false;
+                // After searching, add resources
+                AddResources("LakeHouse");
+            }
         }
         
     }
@@ -78,6 +76,7 @@ public class SearchPlace : MonoBehaviour
             
             if(timer > searchTime){
                 isSearching = false;
+                // isFishing = false;
                 timer = 0.0f;
                 animTimer.SetBool("isSearching", false);
                 timerObject.SetActive(false);
@@ -116,9 +115,9 @@ public class SearchPlace : MonoBehaviour
     }
 
     public void OnFishClick(){
-        // if(!isFishing){
-        //     isFishing = true;
-        //     // player.GetComponent<PlayerController>().isFishing = true;
-        // }
+        if(!isFishing){
+            isFishing = true;
+            player.GetComponent<PlayerController>().isFishing = true;
+        }
     }
 }

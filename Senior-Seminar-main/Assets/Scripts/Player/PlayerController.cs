@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public GameObject building;
     public SearchPlace searchbtn;
     public bool isSearching = false;
+    // Fishing
+    public bool isFishing = false;
 
     void Start(){
         animator = GetComponent<Animator>();
@@ -88,6 +90,8 @@ public class PlayerController : MonoBehaviour
         }else if(collisionTag == "LakeHouse"){ // Did player hit lakehouse
           
             building = collision.gameObject;
+            searchbtn.fishButton.SetActive(true);
+            searchbtn.building = building;
             
         }else if(collisionTag == "Wind"){ //  Did player hit the windmill
            
@@ -128,8 +132,8 @@ public class PlayerController : MonoBehaviour
             if(!isSearching)
                 searchbtn.searchButton.SetActive(false);
         }else if(collision.gameObject.tag == "LakeHouse"){
-            //Fish (food, water)
-            //No more than +3 fish 
+             if(!isFishing)
+                searchbtn.fishButton.SetActive(false);
         }else if(collision.gameObject.tag == "Wind"){
             // Disable search button if player isn't searching
             if(!isSearching)
