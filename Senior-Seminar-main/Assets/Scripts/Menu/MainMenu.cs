@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject player;
+
+    //Audio Mixer
+    public AudioMixer audioMixer;
 
     //When script begins
     void Awake()
@@ -56,4 +60,15 @@ public class MainMenu : MonoBehaviour
     {
     	Application.Quit();
     }
+
+    public void SetVolume(float volume) 
+    {
+        audioMixer.SetFloat("volume", volume);
+    }
+
+    public void SetDayLength()
+    {
+        //DayNightCycle.dayLengthInSeconds = 600f;
+    }
+
 }

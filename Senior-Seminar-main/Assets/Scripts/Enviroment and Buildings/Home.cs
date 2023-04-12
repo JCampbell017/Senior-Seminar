@@ -9,6 +9,14 @@ public class Home : MonoBehaviour
     public static float scrap = 0f;
     public static float wood = 0f; 
     public GameObject house;
+
+    public static float max_food = 100f;
+    public static float max_water = 100f;
+    public static float max_scrap = 100f;
+    public static float max_wood = 100f;
+
+    public static int tier = 0;
+    public GameObject button;
    
     // Start is called before the first frame update
     void Start()
@@ -31,7 +39,14 @@ public class Home : MonoBehaviour
             wood -=1f;
     }
 
-    private void OnTriggerEnter(Collider collider){
-        
+    //method to deposit resources here
+
+    private void OnCollisionEnter2D(Collision2D coll){
+        PlayerInv.deposit_resources();
+        button.transform.position = new Vector3(735f, 400f, 0f);
+    }
+
+    private void OnCollisionExit2D(Collision2D coll){
+        button.transform.position = new Vector3(-600f, -600f, -600f);
     }
 }

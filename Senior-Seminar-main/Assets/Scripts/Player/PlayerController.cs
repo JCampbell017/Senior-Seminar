@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
-    public PlayerWeapons rweapon;
     public float speed = 5.0f;
 
     public string sideCollision = "";
@@ -51,10 +50,6 @@ public class PlayerController : MonoBehaviour
         //Data for shooting a ranged weapon
         float mX = Input.GetAxisRaw("Horizontal");
         float mY = Input.GetAxisRaw("Vertical");
-        if (Input.GetMouseButtonDown(0))
-        {
-            rweapon.Shoot();
-        }
         moveDirect = new Vector2(mX, mY).normalized;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

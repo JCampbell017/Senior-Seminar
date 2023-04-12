@@ -14,6 +14,10 @@ public class PlayerWeapons : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = rotation;
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
     }
     public void Shoot()
     {
