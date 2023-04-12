@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 0b88e815f1b0e984d8898eed5eb07246
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - building: {instanceID: 0}
+  - player: {fileID: 4851018949654238171, guid: 9bf319725fcb62e43a0bc26ef08c8be1, type: 3}
+  - home: {fileID: 5653865905430981223, guid: bff9f97436bedca4aa95b9f552fc4121, type: 3}
+  - searchButton: {fileID: 4776225908645347941, guid: e49253a72f045634d96cf4b8a680bdc3, type: 3}
+  - fishButton: {fileID: 9092528328085831255, guid: cd03c88a5e324a24a97f3588d108233c, type: 3}
+  - timerObject: {fileID: 2345900669425574435, guid: 4682f37677b1b0542a5597b09f51eac7, type: 3}
+  - lakeHouse: {fileID: 728527710717710355, guid: 8a2fc6cda19fb72458c137f4d56a51e4, type: 3}
+  - animTimer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
