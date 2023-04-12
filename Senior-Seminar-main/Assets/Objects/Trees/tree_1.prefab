@@ -233,3 +233,8 @@ MonoBehaviour:
   bottomBoundary: {fileID: 740729550757512286}
   numTrees: 7
   maxNumTrees: 7
+  player: {fileID: 4851018949654238171, guid: 9bf319725fcb62e43a0bc26ef08c8be1, type: 3}
+  house: {fileID: 5653865905430981223, guid: bff9f97436bedca4aa95b9f552fc4121, type: 3}
+  garden: {fileID: 2070207932619760877, guid: 345411c9c92642240a98f005de886571, type: 3}
+  windmill: {fileID: 1870923306489707931, guid: ba389a95c62738e408bcd7d5029992bd, type: 3}
+  lakehouse: {fileID: 728527710717710355, guid: 8a2fc6cda19fb72458c137f4d56a51e4, type: 3}

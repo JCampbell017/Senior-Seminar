@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private float spawnInterval = 3.5f;
-    // Start is called before the first frame update
+    // Start is called before the first frame updatez
     void Start()
     {
         StartCoroutine(Spawn(spawnInterval, lightPrefab));

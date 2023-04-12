@@ -51,7 +51,7 @@ public class SearchPlace : MonoBehaviour
             fishButton.transform.position = new Vector3(500000,0,-500000);
             player.SetActive(false);
             timer += Time.deltaTime;
-            if(timer > searchTime){
+            if(timer > fishTime){
                 isFishing = false;
                 timer = 0.0f;
                 player.SetActive(true);
@@ -103,7 +103,7 @@ public class SearchPlace : MonoBehaviour
         }else if(building == "Wind"){
             PlayerInv.update_player_inv("water", Random.Range(5, 10));
         }else if(building == "LakeHouse"){
-            // add fish
+           PlayerInv.update_player_inv("food", Random.Range(0, 3));
         }
     }
 
