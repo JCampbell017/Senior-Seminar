@@ -27,9 +27,9 @@ public class ResourceCounters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        food.text = "Food: " + Home.food;
-        water.text = "Water: " + Home.water;
-        scrap.text = "Scrap: " + Home.scrap;
-        wood.text = "Wood: " + Home.wood;
+        food.text = "Food: " + PlayerInv.carrying_food;
+        water.text = "Water: " + PlayerInv.carrying_water;
+        scrap.text = "Scrap: " + PlayerInv.carrying_scrap;
+        wood.text = "Wood: " + PlayerInv.carrying_wood;
     }
 }

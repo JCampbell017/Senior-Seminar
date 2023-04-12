@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rbPlayer;
     public Collider2D colPlayer;
-     public PlayerWeapons rweapon;
+    public PlayerWeapons rweapon;
     public float speed = 5.0f;
 
     public string sideCollision = "";

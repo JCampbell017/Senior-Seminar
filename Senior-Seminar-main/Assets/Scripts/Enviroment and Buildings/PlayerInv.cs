@@ -7,10 +7,12 @@ public class PlayerInv : MonoBehaviour
     private static float max_food = 50;
     private static float max_water = 50;
     private static float max_scrap = 50;
+    private static float max_wood = 25;
 
     public static float carrying_food;
     public static float carrying_water;
-    public static float carrying_scrap; 
+    public static float carrying_scrap;
+    public static float carrying_wood; 
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class PlayerInv : MonoBehaviour
         carrying_food = 0;
         carrying_water = 0;
         carrying_scrap = 0;
+        carrying_wood = 0;
     }
 
     public static void update_player_inv(string material, float count){
@@ -45,6 +48,14 @@ public class PlayerInv : MonoBehaviour
                 carrying_scrap = max_scrap;
             }
         }
+        else if(material.Equals("wood")){
+            carrying_wood += count;
+            if(carrying_wood > max_wood){
+                float dropped = carrying_wood - max_wood;
+                //output that you dropped scrap
+                carrying_wood = max_wood;
+            }
+        }
     }
 
     public static void deposit_resources(){
@@ -54,6 +65,8 @@ public class PlayerInv : MonoBehaviour
         carrying_water = 0;
         Home.scrap += carrying_scrap;
         carrying_scrap = 0;
+        Home.wood += carrying_wood;
+        carrying_wood = 0;
     }
 
     public void upgrade_backpack(string resource, float limit){
@@ -66,10 +79,14 @@ public class PlayerInv : MonoBehaviour
         else if(resource.Equals("scrap")){
             max_scrap = limit;
         }
+        else if(resource.Equals("wood")){
+            max_wood = limit;
+        }
         else if(resource.Equals("all")){
             max_food = limit;
             max_water = limit;
             max_scrap = limit;
+            max_wood = limit;
         }
     }
 }
