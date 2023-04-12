@@ -9,15 +9,13 @@ public class World : MonoBehaviour{
     public static int current_day;
     //1 for day, 2 for night
     public static int day_or_night;
-    public static string season;
+    private static string season;
     public static int season_farm_penalty;
 
-    public DateTime current_time;
-    public DateTime last_day_time;
-    public static DateTime counter;
-
-    public static int tree_count = 5;
-    public static int max_tree_count = 10;
+    private DateTime current_time;
+    private DateTime last_day_time;
+    public DateTime counter;
+    public int max_tree_count = 7;
 
     [SerializeField] [Range(0, seconds_per_day)] private float _realtimeDayLength = 60;
 
@@ -58,21 +56,21 @@ public class World : MonoBehaviour{
     //currently handles day/night cycle
     private void update(){
         //calculate the time that needs to be added to the current day
-        float timestep = seconds_per_day / _realtimeDayLength * Time.deltaTime;
-        //add to the current day
-        current_time = current_time.AddSeconds(timestep);
+        // float timestep = seconds_per_day / _realtimeDayLength * Time.deltaTime;
+        // //add to the current day
+        // current_time = current_time.AddSeconds(timestep);
 
-        // counter = (DateTime)(current_time - last_day_time);
-        //first 5 minutes are considered day time, last 5 minutes are considered night
-        if((counter).Second >= seconds_per_day/2){
-            day_or_night = 2;
-        }
-        else{
-            day_or_night = 1;
-        }
-        if((counter).Second >= seconds_per_day){
-            last_day_time = current_time;
-            current_day++;
-        }
+        // counter = (current_time - last_day_time) as DateTime;
+        // //first 5 minutes are considered day time, last 5 minutes are considered night
+        // if(counter.Seconds >= seconds_per_day/2){
+        //     day_or_night = 2;
+        // }
+        // else{
+        //     day_or_night = 1;
+        // }
+        // if(counter.Seconds >= seconds_per_day){
+        //     last_day_time = current_time;
+        //     current_day++;
+        // }
     }
 }

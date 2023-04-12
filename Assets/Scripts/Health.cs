@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
+    // Had to temporarily make the health variable public for the saving progress
+    [SerializeField] public int health = 100;
 
     private int MAX_HEALTH = 100;
     public HealthBar healthBar;
