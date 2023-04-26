@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerInv : MonoBehaviour
 {
-    private static float max_food = 50f;
-    private static float max_water = 50f;
-    private static float max_scrap = 50f;
-    private static float max_wood = 50f;
+    public static float max_limit = 50f;
+    private static float max_food = max_limit;
+    private static float max_water = max_limit;
+    private static float max_scrap = max_limit;
+    private static float max_wood = max_limit;
 
     public static float carrying_food;
     public static float carrying_water;
@@ -93,7 +94,7 @@ public class PlayerInv : MonoBehaviour
         }
     }
 
-    public void upgrade_backpack(string resource, float limit){
+    public static void upgrade_backpack(string resource, float limit){
         if(resource.Equals("food")){
             max_food = limit;
         }
@@ -110,6 +111,7 @@ public class PlayerInv : MonoBehaviour
             max_food = limit;
             max_water = limit;
             max_scrap = limit;
+            max_wood = limit;
         }
     }
 }

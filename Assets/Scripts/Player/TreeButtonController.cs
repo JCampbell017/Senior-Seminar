@@ -51,8 +51,8 @@ public class TreeButtonController : MonoBehaviour
                 Destroy(tree);
                 Camera.main.GetComponent<TreeFunctions>().RemoveTree();
                 
-                Home.wood +=3;
-                Debug.Log(Home.wood);
+                PlayerInv.carrying_wood +=3;
+                Debug.Log(PlayerInv.carrying_wood);
 
             }else{
                 if(plControl.sideCollision == "left"){

@@ -341,7 +341,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6dada48985846c644b072188f0fcf719, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -450,6 +450,7 @@ MonoBehaviour:
   speed: 0.2
   range: 0.05
   data: {fileID: 11400000, guid: d36b114a890c01d48bff7c95cee92837, type: 2}
+  enemy: {fileID: 3681156213616869504, guid: 9d2ab5567ef2cef4295da3b7bae6248c, type: 3}
   offset: 0.05
   rbPlayer: {fileID: 0}
   tmcTrees: {fileID: 0}

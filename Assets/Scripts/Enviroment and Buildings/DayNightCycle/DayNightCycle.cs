@@ -4,8 +4,8 @@ using UnityEngine;
 public class DayNightCycle : MonoBehaviour
 {
     public bool haveDayNightCycle = true;
-    public float dayLengthInSeconds = 5f;
-    public float dayInitial = .25f;
+    public float dayLengthInSeconds = 60f;
+    public float dayInitial = .50f;
     public Transform sunTransform;
 
     private float sunRefreshRate;

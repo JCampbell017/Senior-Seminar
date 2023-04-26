@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private EnemyData data;
 
     private GameObject player;
+    public GameObject enemy;
 
     public float offset = 0.05f;
     public Rigidbody2D rbPlayer;
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         animEnemy = GetComponent<Animator>();
         SetEnemyValues();
+        enemy.SetActive(false);
     }
 
     // Update is called once per frame

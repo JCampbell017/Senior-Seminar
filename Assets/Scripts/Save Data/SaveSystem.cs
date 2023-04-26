@@ -10,6 +10,7 @@ public class SaveSystem : MonoBehaviour
     // attach to buttons to save 
     public void SavePlayer(){
         Save.SavePlayer(player);
+       
     }
 
     // attach to button to load game on start up

@@ -12,6 +12,8 @@ TagManager:
   - Wind
   - LakeHouse
   - House
+  - Building
+  - Environment
   layers:
   - Default
   - TransparentFX

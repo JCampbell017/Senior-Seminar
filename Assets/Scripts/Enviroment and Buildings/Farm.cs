@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Farm : MonoBehaviour{
-    public int farm_tier = 1;
+    public static int farm_tier = 1;
     private int farm_event;
 
     [SerializeField]public TMPro.TextMeshProUGUI event_text = new TMPro.TextMeshProUGUI();
