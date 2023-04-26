@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8675353151160658871}
   - component: {fileID: 4679033197260314732}
   - component: {fileID: 9131327070088344564}
+  - component: {fileID: 5219474863344354904}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -138,15 +139,11 @@ MonoBehaviour:
   player: {fileID: 0}
   home: {fileID: 0}
   searchButton: {fileID: 0}
-  fishButton: {fileID: 0}
   timerObject: {fileID: 0}
-  lakeHouse: {fileID: 0}
   animTimer: {fileID: 0}
   timer: 0
   searchTime: 2
-  fishTime: 8
   isSearching: 0
-  isFishing: 0
 --- !u!114 &9131327070088344564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +162,31 @@ MonoBehaviour:
   bottomBoundary: {fileID: 0}
   numTrees: 7
   maxNumTrees: 7
+  player: {fileID: 0}
+  house: {fileID: 0}
+  garden: {fileID: 0}
+  windmill: {fileID: 0}
+  lakehouse: {fileID: 0}
+--- !u!114 &5219474863344354904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494074227065197918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110a08e0fe845ae4f87a25321048f43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4851018949654238171, guid: 9bf319725fcb62e43a0bc26ef08c8be1, type: 3}
+  fishButton: {fileID: 9092528328085831255, guid: cd03c88a5e324a24a97f3588d108233c, type: 3}
+  timerObject: {fileID: 2345900669425574435, guid: 4682f37677b1b0542a5597b09f51eac7, type: 3}
+  lakeHouse: {fileID: 728527710717710355, guid: 8a2fc6cda19fb72458c137f4d56a51e4, type: 3}
+  animTimer: {fileID: 2345900669425574438, guid: 4682f37677b1b0542a5597b09f51eac7, type: 3}
+  timer: 0
+  fishTime: 8
+  isFishing: 0
 --- !u!1 &1741067353040869052
 GameObject:
   m_ObjectHideFlags: 0
