@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject player;
+    public GameObject dropDown;
 
     //Audio Mixer
     public AudioMixer audioMixer;
@@ -74,7 +76,20 @@ public class MainMenu : MonoBehaviour
 
     public void SetDayLength()
     {
-        //DayNightCycle.dayLengthInSeconds = 600f;
+        switch(dropDown.GetComponent<TMP_Dropdown>().value)
+        {
+            case 0:
+                DayNightCycle.dayLengthInSeconds = 600f;
+                break;
+            case 1:
+                DayNightCycle.dayLengthInSeconds = 300f;
+                break;
+            case 2:
+                DayNightCycle.dayLengthInSeconds = 1200f;
+                break;
+            default:
+                break;
+        }
     }
 
 }
