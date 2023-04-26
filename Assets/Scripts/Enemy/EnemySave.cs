@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Enemy", order = 1)]
-
-public class EnemyData : ScriptableObject
-{
-    public int hp;
-    public int damage;
-    public float speed;
-    public float[] position;
+[System.Serializable]
+public class EnemySave {
+     public float[] position;
     public int health;
     public GameObject enemy;
     // public int id;
 
-    public EnemyData(GameObject enemy){
+    public EnemySave(GameObject enemy){
         // this.id = id;
         this.enemy = enemy;
         health = enemy.GetComponent<Health>().GetHealth();
@@ -23,6 +18,4 @@ public class EnemyData : ScriptableObject
         position[1] = enemy.transform.position.y;
         position[2] = enemy.transform.position.z;
     }
-
-    
 }

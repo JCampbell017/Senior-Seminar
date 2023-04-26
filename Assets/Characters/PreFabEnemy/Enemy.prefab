@@ -387,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthBar: {fileID: 1854879713344329495}
+  lootBox: {fileID: 0}
 --- !u!50 &3681156213616869516
 Rigidbody2D:
   serializedVersion: 4
