@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public SearchPlace searchbtn;
     public bool isSearching = false;
     // Fishing
+    public bool isTouchingLakehouse = false;
     public bool isFishing = false;
 
     void Start(){
@@ -77,24 +78,12 @@ public class PlayerController : MonoBehaviour
             btn.button.SetActive(true);
             CheckCollidingSide(btn.tree);
       
-        }else if(collisionTag == "Neighbor"){ // Did player hit a neighboring house
+        }else if(collisionTag == "Neighbor"||collisionTag == "LakeHouse"||collisionTag == "Wind"||collisionTag == "Store"){ // Did player hit a neighboring house
             building = collision.gameObject;
             searchbtn.searchButton.SetActive(true);
             searchbtn.building = building;
-
-        }else if(collisionTag == "LakeHouse"){ // Did player hit lakehouse
-          
-            building = collision.gameObject;
-            searchbtn.fishButton.SetActive(true);
-            searchbtn.building = building;
-            
-        }else if(collisionTag == "Wind"){ //  Did player hit the windmill
-           
-            building = collision.gameObject;
-            searchbtn.searchButton.SetActive(true);
 
         }
-
         if(collisionTag == "House"){
             PlayerInv.deposit_resources();
             Debug.Log("Player touched house");
@@ -118,21 +107,12 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision){
         // Debug.Log(collision.gameObject.name + " : " + gameObject.name + " : " + Time.time);
         if(collision.gameObject.tag == "Tree"){
-           Debug.Log("Touching tree");
-           
-            TreeButtonController btn = Camera.main.GetComponent<TreeButtonController>();
             btn.button.SetActive(false);
-        }else if(collision.gameObject.tag == "Neighbor"){
+        }else {
               // Disable search button if player isn't searching
             if(!isSearching)
                 searchbtn.searchButton.SetActive(false);
-        }else if(collision.gameObject.tag == "LakeHouse"){
-             if(!isFishing)
-                searchbtn.fishButton.SetActive(false);
-        }else if(collision.gameObject.tag == "Wind"){
-            // Disable search button if player isn't searching
-            if(!isSearching)
-                searchbtn.searchButton.SetActive(false);
+
         }
     }
 

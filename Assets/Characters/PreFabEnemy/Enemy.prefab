@@ -387,6 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthBar: {fileID: 1854879713344329495}
+  lootBox: {fileID: 2445887790677343122, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
 --- !u!50 &3681156213616869516
 Rigidbody2D:
   serializedVersion: 4

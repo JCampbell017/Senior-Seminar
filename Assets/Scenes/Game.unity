@@ -3187,23 +3187,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7469813311187978171, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7669737055921020699, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7669737055921020699, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7669737055921020699, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 836.3777
       objectReference: {fileID: 0}
     - target: {fileID: 7669737055921020699, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -290.3333
       objectReference: {fileID: 0}
     - target: {fileID: 8781145315253106056, guid: ac9eefd2b544bfb4ab1ec050d6a044ec, type: 3}
       propertyPath: invClose
@@ -5114,6 +5114,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909889605}
   m_CullTransparentMesh: 1
+--- !u!1001 &931498617
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 84.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -61.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2822810138032598613, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2912638572694097768, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
+      propertyPath: m_Name
+      value: loot_box
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 413b0062f1a36e046872ca0811cef3cd, type: 3}
 --- !u!1 &952302423
 GameObject:
   m_ObjectHideFlags: 0
@@ -6469,15 +6526,11 @@ MonoBehaviour:
   player: {fileID: 908741812}
   home: {fileID: 487601764}
   searchButton: {fileID: 877923203}
-  fishButton: {fileID: 1127246607}
   timerObject: {fileID: 1771981217}
-  lakeHouse: {fileID: 1396231037}
   animTimer: {fileID: 1771981216}
   timer: 0
   searchTime: 2
-  fishTime: 8
   isSearching: 0
-  isFishing: 0
 --- !u!1001 &1131563564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17616,7 +17669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3903660757518161710, guid: 6c296b8418848fe43b38192d4093f08e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 427
+      value: 407.5
       objectReference: {fileID: 0}
     - target: {fileID: 3903660757518161710, guid: 6c296b8418848fe43b38192d4093f08e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17724,7 +17777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3903660757871930752, guid: 6c296b8418848fe43b38192d4093f08e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 407.5
       objectReference: {fileID: 0}
     - target: {fileID: 3903660757871930752, guid: 6c296b8418848fe43b38192d4093f08e, type: 3}
       propertyPath: m_AnchoredPosition.y
