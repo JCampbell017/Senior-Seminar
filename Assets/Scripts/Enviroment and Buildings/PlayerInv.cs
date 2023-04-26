@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerInv : MonoBehaviour
 {
-    private static float max_food = 50;
-    private static float max_water = 50;
-    private static float max_scrap = 50;
-    private static float max_wood = 25;
+    public static float max_limit = 50f;
+    private static float max_food = max_limit;
+    private static float max_water = max_limit;
+    private static float max_scrap = max_limit;
+    private static float max_wood = max_limit;
 
     public static float carrying_food;
     public static float carrying_water;
@@ -52,24 +53,48 @@ public class PlayerInv : MonoBehaviour
             carrying_wood += count;
             if(carrying_wood > max_wood){
                 float dropped = carrying_wood - max_wood;
-                //output that you dropped scrap
+                //output
                 carrying_wood = max_wood;
             }
         }
     }
 
     public static void deposit_resources(){
-        Home.food += carrying_food;
-        carrying_food = 0;
-        Home.water += carrying_water;
-        carrying_water = 0;
-        Home.scrap += carrying_scrap;
-        carrying_scrap = 0;
-        Home.wood += carrying_wood;
-        carrying_wood = 0;
+        if(Home.food + carrying_food >= Home.max_food){
+            Home.food = Home.max_food;
+            carrying_food = carrying_food - Home.max_food;
+        }
+        else{
+            Home.food += carrying_food;
+            carrying_food = 0;
+        }
+        if(Home.water + carrying_water >= Home.max_water){
+            Home.water = Home.max_water;
+            carrying_water = carrying_water - Home.max_water;
+        }
+        else{
+            Home.water += carrying_water;
+            carrying_water = 0;
+        }
+        if(Home.scrap + carrying_scrap >= Home.max_scrap){
+            Home.scrap = Home.max_scrap;
+            carrying_scrap = carrying_scrap - Home.max_water;
+        }
+        else{
+            Home.scrap += carrying_scrap;
+            carrying_scrap = 0;
+        }
+        if(Home.wood + carrying_wood >= Home.max_wood){
+            Home.wood = Home.max_wood;
+            carrying_wood = carrying_wood - Home.max_wood;
+        }
+        else{
+            Home.wood += carrying_wood;
+            carrying_wood = 0;
+        }
     }
 
-    public void upgrade_backpack(string resource, float limit){
+    public static void upgrade_backpack(string resource, float limit){
         if(resource.Equals("food")){
             max_food = limit;
         }
