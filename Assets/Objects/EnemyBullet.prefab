@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6516400226055187786}
   - component: {fileID: 6813042309258846194}
   m_Layer: 7
-  m_Name: EnemyShotgunBullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678011923026613407}
-  m_LocalRotation: {x: 0, y: 0, z: 0.053340297, w: 0.9985764}
-  m_LocalPosition: {x: 0.73349, y: -1.25735, z: 0}
-  m_LocalScale: {x: 0.021274962, y: 0.013680248, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9778353, w: 0.20937575}
+  m_LocalPosition: {x: 0.734, y: -1.258, z: 0}
+  m_LocalScale: {x: 0.022116955, y: 0.013680248, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: 309ac3eb4cc441349b63128366ca98b6, type: 3}
+  m_Sprite: {fileID: 21300012, guid: 309ac3eb4cc441349b63128366ca98b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020427704, y: 0.036902666}
+  m_Offset: {x: 0, y: 0.036902666}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.96, y: 6.12}
+    oldSize: {x: 1.08, y: 6.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7748792, y: 6.186826}
+  m_Size: {x: 1, y: 6.186826}
   m_EdgeRadius: 0
 --- !u!50 &-6516400226055187786
 Rigidbody2D:
