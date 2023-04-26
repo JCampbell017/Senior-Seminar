@@ -6842,7 +6842,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   haveDayNightCycle: 1
-  dayLengthInSeconds: 60
   dayInitial: 0.75
   sunTransform: {fileID: 1199049111}
 --- !u!1 &1268083698
@@ -7744,6 +7743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1661286280}
+  audioManager: {fileID: 0}
 --- !u!1 &1569593548
 GameObject:
   m_ObjectHideFlags: 0

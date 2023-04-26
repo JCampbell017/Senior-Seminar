@@ -75,6 +75,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Debug.Log("I am Dead!");
+        FindObjectOfType<AudioManager>().Play("Death");
         if(gameObject.tag == "Enemy")
             lootBox.PlaceLootBox(gameObject.transform.position);
         Destroy(gameObject);

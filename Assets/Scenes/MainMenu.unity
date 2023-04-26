@@ -443,10 +443,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
+  m_fontSize: 18.15
   m_fontSizeBase: 14
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1701,6 +1701,11 @@ MonoBehaviour:
     volume: 0.25
     source: {fileID: 0}
     loop: 1
+  - name: Gunshot
+    clip: {fileID: 8300000, guid: 14b58ab83fc70437eac739f624498642, type: 3}
+    volume: 0.5
+    source: {fileID: 0}
+    loop: 0
   mixer: {fileID: 24300002, guid: 088aec24c4718154ab686d66db81563b, type: 2}
 --- !u!4 &751394042
 Transform:
@@ -3386,6 +3391,7 @@ MonoBehaviour:
   mainMenu: {fileID: 1130143317}
   settingsMenu: {fileID: 1093983651}
   player: {fileID: 4851018949654238171, guid: 9bf319725fcb62e43a0bc26ef08c8be1, type: 3}
+  dropDown: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 088aec24c4718154ab686d66db81563b, type: 2}
   audioManager: {fileID: 751394041}
 --- !u!4 &1913534937

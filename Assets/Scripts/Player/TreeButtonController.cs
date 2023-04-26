@@ -70,7 +70,7 @@ public class TreeButtonController : MonoBehaviour
         animator.SetBool("chopTree", true);
         isChopping = true;
         button.transform.position = new Vector3(500000,0,-500000);
-        chopSound.Play();
+        FindObjectOfType<AudioManager>().Play("Chop");
     }
 
 }
