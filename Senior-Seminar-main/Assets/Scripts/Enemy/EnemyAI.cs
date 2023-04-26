@@ -17,6 +17,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private int damage = 5;
 
+    [SerializeField]
+    private float radius = 2f;
+
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
@@ -51,7 +54,9 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (path == null)
+        if(Vector2.Distance(transform.position, target.position) > radius)
+        {
+            if (path == null)
             return;
 
         if(currentWaypoint >= path.vectorPath.Count)
@@ -82,6 +87,9 @@ public class EnemyAI : MonoBehaviour
         {
             transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f);
         }
+
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
