@@ -27,6 +27,10 @@ public class EnemyBullets : MonoBehaviour
             health.Damage(damage);
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("Environment"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

@@ -43,10 +43,10 @@ public class Home : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll){
         PlayerInv.deposit_resources();
-        button.transform.position =  Camera.main.WorldToScreenPoint(house.transform.position);
+        button.transform.position = Camera.main.WorldToScreenPoint(house.transform.position);
     }
 
     private void OnCollisionExit2D(Collision2D coll){
-        button.transform.position = new Vector3(-600f, -600f, -600f);
+        button.transform.position = new Vector3(-60000f, -60000f, -60000f);
     }
 }

@@ -27,10 +27,10 @@ public class FarmUpgrade : MonoBehaviour
         RequiredFood = foodCounter.GetComponent<TextMeshProUGUI> ();
     }
     void Update(){
-        RequiredWood.text = "Wood  : " + PlayerInv.max_limit * .5f;
+        RequiredWood.text = "Wood: " + PlayerInv.max_limit * .5f;
         RequiredScrap.text = "Scrap: " + PlayerInv.max_limit * .5f;
-        RequiredFood.text = "Food  : " + PlayerInv.max_limit * .2f;
-        RequiredWater.text = "Water : " + PlayerInv.max_limit * .2f;
+        RequiredFood.text = "Food: " + PlayerInv.max_limit * .2f;
+        RequiredWater.text = "Water: " + PlayerInv.max_limit * .2f;
         if(Home.wood >= float.Parse(RequiredWood.text.Substring(7)) && Home.scrap >= float.Parse(RequiredScrap.text.Substring(7)) && Home.food >= float.Parse(RequiredFood.text.Substring(7)) && Home.water >= float.Parse(RequiredWater.text.Substring(7))){
             enabled = true;
 

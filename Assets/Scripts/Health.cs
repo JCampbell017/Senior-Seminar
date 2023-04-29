@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 
     private int MAX_HEALTH = 100;
     public HealthBar healthBar;
+    public LootBox lootBox;
 
     // Update is called once per frame
     void Update()
@@ -20,7 +21,7 @@ public class Health : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            //Heal(10);
+            Heal(10);
         }
     }
 
@@ -74,6 +75,9 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Debug.Log("I am Dead!");
+        FindObjectOfType<AudioManager>().Play("Death");
+        if(gameObject.tag == "Enemy")
+            lootBox.PlaceLootBox(gameObject.transform.position);
         Destroy(gameObject);
     }
 }
