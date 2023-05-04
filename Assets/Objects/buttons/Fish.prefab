@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 5519101991263121113}
   - component: {fileID: 5950748715310345801}
   - component: {fileID: 7396880324532986562}
-  - component: {fileID: 7339833643622096981}
   m_Layer: 5
   m_Name: Fish
   m_TagString: Untagged
@@ -258,23 +257,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7339833643622096981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9092528328085831255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 110a08e0fe845ae4f87a25321048f43f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 4851018949654238171, guid: 9bf319725fcb62e43a0bc26ef08c8be1, type: 3}
-  fishButton: {fileID: 9092528328085831255}
-  timerObject: {fileID: 2345900669425574435, guid: 4682f37677b1b0542a5597b09f51eac7, type: 3}
-  lakeHouse: {fileID: 0}
-  animTimer: {fileID: 2345900669425574438, guid: 4682f37677b1b0542a5597b09f51eac7, type: 3}
-  timer: 0
-  fishTime: 8
-  isFishing: 0

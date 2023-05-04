@@ -22,17 +22,15 @@ public class EnemyWeapons : MonoBehaviour
         float angle = Mathf.Atan2(enemyAim.y, enemyAim.x) * Mathf.Rad2Deg;
         bullets.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = bullets.transform.rotation;
-        if(player != null){
+        if (player != null)
+        {
             float dis = Vector2.Distance(transform.position, player.transform.position);
-            if (dis < 1)
-            {
-                timer += Time.deltaTime;
+            timer += Time.deltaTime;
 
-                if (timer > 2)
-                {
-                    timer = 0;
-                    Shoot();
-                }
+            if (timer > 2)
+            {
+                timer = 0;
+                Shoot();
             }
         }
     }

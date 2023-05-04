@@ -6,7 +6,6 @@ public class SaveSystem : MonoBehaviour
 {
     public PlayerController player;
     public GameObject loadCanvas;
-    public GameObject enemy;
 
     // attach to buttons to save 
     public void SavePlayer(){
@@ -16,7 +15,6 @@ public class SaveSystem : MonoBehaviour
 
     // attach to button to load game on start up
     public void LoadPlayer(){
-        loadCanvas.SetActive(false);
         PlayerData data = Save.LoadPlayer();
         Home.food = data.food;
         Home.water = data.water;
@@ -30,25 +28,12 @@ public class SaveSystem : MonoBehaviour
         position.z = data.position[2];
 
         player.transform.position = position;
-        LoadEnemy(Save.LoadEnemies());
-        
+        loadCanvas.SetActive(false);
 
-    }
-
-    void LoadEnemy(EnemySave[] enemies){
-
-        for(int i = 0; i < enemies.Length; i++){
-            
-            Vector3 position;
-            position.x = enemies[i].position[0];
-            position.y = enemies[i].position[1];
-            position.z = enemies[i].position[2];
-            Instantiate(enemy, position, enemy.transform.rotation);
-        }
     }
 
     public void LoadNewPlayer(){
-        loadCanvas.SetActive(false);
+      
         Home.food = 0;
         Home.water = 0;
         Home.scrap = 0;
@@ -61,7 +46,7 @@ public class SaveSystem : MonoBehaviour
         position.z = 0;
 
         player.transform.position = position;
-        
+        loadCanvas.SetActive(false);
 
     }
     

@@ -10,14 +10,10 @@ public class EnemyData : ScriptableObject
     public int damage;
     public float speed;
     public float[] position;
-    public int health;
-    public GameObject enemy;
     // public int id;
 
     public EnemyData(GameObject enemy){
         // this.id = id;
-        this.enemy = enemy;
-        health = enemy.GetComponent<Health>().GetHealth();
         position = new float[3];
         position[0] = enemy.transform.position.x;
         position[1] = enemy.transform.position.y;

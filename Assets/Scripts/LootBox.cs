@@ -6,18 +6,13 @@ public class LootBox : MonoBehaviour
 {
     float timer = 0.0f;
     float timeToRemain = 10.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if(timer > timeToRemain){
             Destroy(gameObject);
         }
+        timer += Time.deltaTime;
     }
 
     public void PlaceLootBox (Vector3 position){
@@ -32,7 +27,7 @@ public class LootBox : MonoBehaviour
 
             PlayerInv.update_player_inv("food", food_gain);
             PlayerInv.update_player_inv("water", water_gain);
-            PlayerInv.update_player_inv("Scrap", scrap_gain);
+            PlayerInv.update_player_inv("scrap", scrap_gain);
 
             Destroy(gameObject);
         }

@@ -13,27 +13,27 @@ public class Turret : MonoBehaviour
 
     private void Start()
     {
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemy = GameObject.FindWithTag("Enemy");
     }
 
     private void Update()
     {
+        enemy = GameObject.FindWithTag("Enemy");
         Vector3 enemyAim = enemy.transform.position - transform.position;
         float angle = Mathf.Atan2(enemyAim.y, enemyAim.x) * Mathf.Rad2Deg;
         bullets.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = bullets.transform.rotation;
-        if(enemy != null){
-            float dis = Vector2.Distance(transform.position, enemy.transform.position);
-            if (dis < 1)
-            {
-                timer += Time.deltaTime;
+        float dis = Vector2.Distance(transform.position, enemy.transform.position);
+        if (dis < 2)
+        {
+            timer += Time.deltaTime;
 
-                if (timer > 2)
-                {
-                    timer = 0;
-                    Shoot();
-                }
+            if (timer > 2)
+            {
+                timer = 0;
+                Shoot();
             }
+            //enemy = GameObject.FindWithTag("Enemy");
         }
     }
     public void Shoot()
