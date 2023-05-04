@@ -19,6 +19,9 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-1f, 1), Random.Range(-1f, 1f), 0), Quaternion.identity);
+        newEnemy.gameObject.tag = "Enemy";
+        yield return new WaitForSeconds(interval);
         StartCoroutine(Spawn(interval, enemy));
+
     }
 }

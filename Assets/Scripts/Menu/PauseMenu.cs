@@ -9,6 +9,12 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenu;
+    public AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -41,12 +47,15 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToMainMenu()
     {
+
+        audioManager.Play("ButtonClick");
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
     {
+        audioManager.Play("ButtonClick");
         Application.Quit();
     }
 }

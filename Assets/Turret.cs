@@ -11,11 +11,11 @@ public class Turret : MonoBehaviour
     [SerializeField]
     private float timer;
 
-    private void Start()
+/*    private void Start()
     {
         enemy = GameObject.FindWithTag("Enemy");
     }
-
+*/
     private void Update()
     {
         enemy = GameObject.FindWithTag("Enemy");
@@ -24,16 +24,12 @@ public class Turret : MonoBehaviour
         bullets.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         transform.rotation = bullets.transform.rotation;
         float dis = Vector2.Distance(transform.position, enemy.transform.position);
-        if (dis < 2)
-        {
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-            if (timer > 2)
-            {
-                timer = 0;
-                Shoot();
-            }
-            //enemy = GameObject.FindWithTag("Enemy");
+        if (timer > 2)
+        {
+            timer = 0;
+            Shoot();
         }
     }
     public void Shoot()

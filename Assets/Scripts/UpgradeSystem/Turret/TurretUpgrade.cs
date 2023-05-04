@@ -21,7 +21,7 @@ public class TurretUpgrade : MonoBehaviour
         RequiredWood = woodCounter.GetComponent<TextMeshProUGUI> ();
     }
     void Update(){
-        RequiredWood.text = "Wood : " + PlayerInv.max_limit * .5f;
+        RequiredWood.text = "Wood: " + PlayerInv.max_limit * .5f;
         RequiredScrap.text = "Scrap: " + PlayerInv.max_limit * .5f;
         if(Home.wood >= float.Parse(RequiredWood.text.Substring(7)) && Home.scrap >= float.Parse(RequiredScrap.text.Substring(7))){
             enabled = true;

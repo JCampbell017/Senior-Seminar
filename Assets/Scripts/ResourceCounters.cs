@@ -5,31 +5,31 @@ using TMPro;
 
 public class ResourceCounters : MonoBehaviour
 {
-
-    public GameObject foodCounter;
-    public GameObject waterCounter;
-    public GameObject scrapCounter;
-    public GameObject woodCounter;
-    TextMeshProUGUI food;
-    TextMeshProUGUI water;
-    TextMeshProUGUI scrap;
-    TextMeshProUGUI wood;
+    // Player inventory
+    public GameObject playerFoodCounter;
+    public GameObject playerWaterCounter;
+    public GameObject playerScrapCounter;
+    public GameObject playerWoodCounter;
+    TextMeshProUGUI playerFood;
+    TextMeshProUGUI playerWater;
+    TextMeshProUGUI playerScrap;
+    TextMeshProUGUI playerWood;
 
     // Start is called before the first frame update
     void Start()
     {
-        food = foodCounter.GetComponent<TextMeshProUGUI> ();
-        water = waterCounter.GetComponent<TextMeshProUGUI> ();
-        scrap = scrapCounter.GetComponent<TextMeshProUGUI> ();
-        wood = woodCounter.GetComponent<TextMeshProUGUI> ();
+        playerFood = playerFoodCounter.GetComponent<TextMeshProUGUI> ();
+        playerWater = playerWaterCounter.GetComponent<TextMeshProUGUI> ();
+        playerScrap = playerScrapCounter.GetComponent<TextMeshProUGUI> ();
+        playerWood = playerWoodCounter.GetComponent<TextMeshProUGUI> ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        food.text = "Food: " + PlayerInv.carrying_food;
-        water.text = "Water: " + PlayerInv.carrying_water;
-        scrap.text = "Scrap: " + PlayerInv.carrying_scrap;
-        wood.text = "Wood: " + PlayerInv.carrying_wood;
+        playerFood.text = "Food: " + PlayerInv.carrying_food;
+        playerWater.text = "Water: " + PlayerInv.carrying_water;
+        playerScrap.text = "Scrap: " + PlayerInv.carrying_scrap;
+        playerWood.text = "Wood: " + PlayerInv.carrying_wood;
     }
 }

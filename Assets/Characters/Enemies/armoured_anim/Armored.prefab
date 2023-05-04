@@ -466,6 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   healthBar: {fileID: 8219189891556283852}
+  lootBox: {fileID: 2445887790677343122, guid: ccdd529fd1c346d4882e740212459e14, type: 3}
 --- !u!61 &6393896509814669910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -738,7 +739,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7759058862759319085
@@ -839,7 +840,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7759058862859391699

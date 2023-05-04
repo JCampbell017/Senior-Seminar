@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,15 +16,18 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject settingsMenu;
     public GameObject player;
+    public GameObject dropDown;
 
     //Audio Mixer
     public AudioMixer audioMixer;
+    public AudioManager audioManager;
 
     //When script begins
     void Awake()
     {
         currentState = MenuStates.Main;
         DontDestroyOnLoad (player);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -42,22 +46,26 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame() 
     {
+        audioManager.Play("ButtonClick");
     	SceneManager.LoadScene("Game");
         SceneManager.MoveGameObjectToScene(player,  SceneManager.GetSceneByName("Game"));
     }
     
     public void GoToSettingsMenu()
     {
+        audioManager.Play("ButtonClick");
     	currentState = MenuStates.Settings;
     }
     
     public void GoToMainMenu()
     {
+        audioManager.Play("ButtonClick");
     	currentState = MenuStates.Main;
     }
 
     public void QuitGame()
     {
+        audioManager.Play("ButtonClick");
     	Application.Quit();
     }
 
@@ -68,7 +76,20 @@ public class MainMenu : MonoBehaviour
 
     public void SetDayLength()
     {
-        //DayNightCycle.dayLengthInSeconds = 600f;
+        switch(dropDown.GetComponent<TMP_Dropdown>().value)
+        {
+            case 0:
+                DayNightCycle.dayLengthInSeconds = 600f;
+                break;
+            case 1:
+                DayNightCycle.dayLengthInSeconds = 300f;
+                break;
+            case 2:
+                DayNightCycle.dayLengthInSeconds = 1200f;
+                break;
+            default:
+                break;
+        }
     }
 
 }

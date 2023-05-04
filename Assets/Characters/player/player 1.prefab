@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 1937434980381705303}
   - component: {fileID: 5116034241484280382}
   - component: {fileID: 671893746110816066}
-  - component: {fileID: 2299461531107449598}
+  - component: {fileID: 3991813418305492392}
   m_Layer: 7
   m_Name: player 1
   m_TagString: Player
@@ -363,7 +363,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1267469326, guid: e0c8f987eb023484f9d5214349bc679c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -401,6 +401,7 @@ MonoBehaviour:
   building: {fileID: 0}
   searchbtn: {fileID: 0}
   isSearching: 0
+  isTouchingLakehouse: 0
   isFishing: 0
 --- !u!50 &3069057909056416657
 Rigidbody2D:
@@ -436,7 +437,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0066363215, y: -0.074420966}
+  m_Offset: {x: 0.0066363215, y: -0.14654148}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -447,7 +448,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12096918, y: 0.19009607}
+  m_Size: {x: 0.12096918, y: 0.045855045}
   m_EdgeRadius: 0
 --- !u!95 &1937434980381705303
 Animator:
@@ -497,7 +498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthBar: {fileID: 7913884061495776229}
---- !u!114 &2299461531107449598
+  lootBox: {fileID: 0}
+--- !u!114 &3991813418305492392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,9 +508,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2988418796367876006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a80957bc1c6dffb45a3cb8b88827f34d, type: 3}
+  m_Script: {fileID: 11500000, guid: dd2aedee5f9857a49ae482aac2406dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
 --- !u!1 &4853029458678375360
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +941,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7650128161097808460

@@ -21,6 +21,7 @@ public class PlayerWeapons : MonoBehaviour
     }
     public void Shoot()
     {
+        FindObjectOfType<AudioManager>().Play("Gunshot");
         GameObject bullet = Instantiate(bullets, barrel.position, barrel.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(barrel.up * velocity, ForceMode2D.Impulse);
     }
